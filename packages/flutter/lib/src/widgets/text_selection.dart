@@ -468,7 +468,9 @@ class TextSelectionOverlay {
       return;
     }
 
-    assert(context.mounted);
+    if (!context.mounted) {
+      return;
+    }
     _selectionOverlay.showToolbar(context: context, contextMenuBuilder: contextMenuBuilder);
     return;
   }
@@ -477,7 +479,9 @@ class TextSelectionOverlay {
   /// available for click-and-replace.
   void showSpellCheckSuggestionsToolbar(WidgetBuilder spellCheckSuggestionsToolbarBuilder) {
     _updateSelectionOverlay();
-    assert(context.mounted);
+    if (!context.mounted) {
+      return;
+    }
     _selectionOverlay.showSpellCheckSuggestionsToolbar(
       context: context,
       builder: spellCheckSuggestionsToolbarBuilder,
